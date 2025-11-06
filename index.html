@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zhioise 青止｜Tea · Incense · Quiet Rituals</title>
+  <meta name="description" content="Zhioise 青止：茶 · 香 · 日常仪式｜Calgary 私享茶会与香事体验，宋式美学与日常静室。" />
+  <meta name="theme-color" content="#F8F4EC" />
+  <meta property="og:title" content="Zhioise 青止" />
+  <meta property="og:description" content="茶 · 香 · 日常仪式｜Where stillness blooms" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:url" content="https://zhioise.com" />
+
+  <!-- Webfonts: 英文衬线 + 无衬线；中文宋/楷体建议在本地/自托管时替换为商用许可字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --paper:#F8F4EC;      /* 宣纸米白 */
+      --qing:#7CA8A1;       /* 龙泉青 */
+      --wood:#C7A27D;       /* 原木暖色 */
+      --ink:#2F2F2F;        /* 温墨 */
+      --gild:#A88B5A;       /* 金黛细线 */
+      --muted:#6b6b6b;      /* 次级文字 */
+      --maxw:1120px;        /* 内容最大宽度 */
+      --pad: min(6vw, 64px);/* 页面边距 */
+      --radius:20px;        /* 卡片圆角 */
+      --shadow:0 8px 24px rgba(0,0,0,0.06);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "PingFang SC", "Noto Sans CJK SC", "Microsoft Yahei", sans-serif;
+      color:var(--ink);
+      background: var(--paper);
+      line-height:1.65;
+      letter-spacing:0.2px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* 背景宣纸轻纹理 */
+    body::before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none;
+      background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 3px 3px;
+      opacity:.35;
+    }
+
+    /* 顶部导航：B(居中卡片)+D(品牌型结构) */
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(6px);
+      background: color-mix(in oklab, var(--paper) 86%, white 14% / 70%);
+      border-bottom:1px solid color-mix(in oklab, var(--gild) 30%, var(--paper) 70%);
+    }
+    .nav{max-width:var(--maxw); margin:0 auto; padding:10px var(--pad); display:flex; align-items:center; justify-content:space-between;}
+    .logo{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;}
+    .logo img{width:28px; height:28px; object-fit:contain; filter: contrast(0.95) saturate(0.9);} /* 替换为你的 logo */
+    .logo .brand{font-family:"Playfair Display", serif; font-size:18px; letter-spacing:0.5px}
+    nav a{color:inherit; text-decoration:none; padding:10px 12px; border-radius:10px;}
+    nav a:hover{background: rgba(0,0,0,0.04);}
+
+    /* Hero 区：B 风格(居中卡片、柔动效) */
+    .hero{padding:clamp(64px, 12vh, 160px) var(--pad) 96px;}
+    .hero-inner{max-width:880px; margin:0 auto; text-align:center;}
+    .stamp{width:68px; height:68px; margin:0 auto 18px; opacity:.9;}
+    h1{
+      font-family:"Playfair Display", serif; 
+      font-weight:500; 
+      font-size: clamp(32px, 5vw, 56px);
+      margin:8px 0 10px;
+      letter-spacing:0.5px;
+    }
+    .sub{font-size:18px; color:var(--muted); margin-bottom:16px}
+    .mantra{font-size:16px; color:var(--ink); margin-bottom:28px}
+    .btns{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+    .btn{border:1px solid var(--gild); color:var(--ink); background:transparent; padding:12px 18px; border-radius:999px; text-decoration:none; font-size:15px}
+    .btn.primary{background:var(--qing); border-color:var(--qing); color:white}
+    .btn:hover{filter:brightness(0.98)}
+
+    /* 卡片容器：B 风格 */
+    .section{padding:64px var(--pad);}    
+    .container{max-width:var(--maxw); margin:0 auto;}
+
+    .card{background:white; border:1px solid color-mix(in oklab, var(--qing) 14%, white 86%); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden}
+    .card-grid{display:grid; grid-template-columns: 1.1fr 1fr; gap:24px; align-items:center;}
+    .card-media{min-height: clamp(260px, 36vh, 420px); background: linear-gradient( to bottom right, color-mix(in oklab, var(--qing) 16%, white 84%), transparent ), url('hero-tea.jpg') center/cover no-repeat;}
+    .card-content{padding:28px 28px 32px;}
+    .eyebrow{color:var(--qing); letter-spacing:2px; font-size:12px; text-transform:uppercase;}
+    h2{font-family:"Playfair Display", serif; font-weight:500; font-size: clamp(24px, 3.6vw, 36px); margin:8px 0 6px}
+    p{margin:0 0 14px}
+
+    .split{
+      display:grid; gap:28px; 
+      grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+    .panel{background:white; border:1px solid color-mix(in oklab, var(--gild) 14%, white 86%); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+    .panel-media{min-height: 280px; background: linear-gradient( to top left, color-mix(in oklab, var(--wood) 18%, white 82%), transparent ), url('incense.jpg') center/cover no-repeat;}
+    .panel-body{padding:24px 24px 28px}
+
+    /* 体验（预约）块：D 品牌分段结构 */
+    .cta{padding:72px var(--pad); background:
+      linear-gradient( to bottom, color-mix(in oklab, var(--qing) 6%, transparent 94%), transparent ),
+      var(--paper);
+      border-top:1px solid color-mix(in oklab, var(--gild) 24%, var(--paper) 76%);
+      border-bottom:1px solid color-mix(in oklab, var(--gild) 24%, var(--paper) 76%);
+    }
+    .cta-inner{max-width:820px; margin:0 auto; text-align:center}
+    .cta p{color:var(--muted);}
+
+    /* 联系页卡片 */
+    .contact-grid{display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));}
+    .contact-card{background:white; border:1px solid color-mix(in oklab, var(--qing) 14%, white 86%); border-radius:16px; padding:18px 18px 20px; box-shadow: var(--shadow)}
+    .contact-card a{color:inherit; text-decoration:none}
+    .contact-card .k{color:var(--muted); font-size:12px; letter-spacing:1px; text-transform:uppercase}
+    .contact-card .v{font-size:16px; margin-top:6px}
+
+    footer{padding:60px var(--pad); text-align:center; color:var(--muted)}
+    footer .sep{height:1px; width:100%; max-width:var(--maxw); margin:0 auto 24px; background: color-mix(in oklab, var(--gild) 30%, var(--paper) 70%)}
+
+    /* 进入时的柔和浮现 */
+    .reveal{opacity:0; transform: translateY(12px); transition: opacity .8s ease, transform .8s ease}
+    .reveal.on{opacity:1; transform:none}
+
+    /* 响应式 */
+    @media (max-width: 900px){
+      .card-grid{grid-template-columns: 1fr;}
+      .split{grid-template-columns:1fr;}
+      .hero{padding-top: calc(64px + 6vh)}
+    }
+
+    /* 动画无障碍 */
+    @media (prefers-reduced-motion: reduce){
+      .reveal{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="logo" href="#home" aria-label="Zhioise home">
+        <img src="/logo.svg" alt="Zhioise 青止 logo" />
+        <span class="brand">Zhioise 青止</span>
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero / 首页（B 居中卡片语气，D 品牌结构） -->
+  <main id="home" class="hero">
+    <div class="hero-inner reveal">
+      <img class="stamp" src="/stamp.png" alt="青止印章" />
+      <h1>Tea · Incense · Quiet Rituals</h1>
+      <div class="sub">茶 · 香 · 日常仪式</div>
+      <div class="mantra">Where stillness blooms</div>
+      <div class="btns">
+        <a class="btn primary" href="#experience">Discover 青止</a>
+        <a class="btn" href="#about">Enter</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- About / 关于（卡片+图文双栏） -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="card card-grid reveal">
+        <div class="card-media" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="eyebrow">ABOUT</div>
+          <h2>青止 · 一处日常静室</h2>
+          <p>以茶安身，以香安神；以器物为友，以四时为伴。慢下来，气沉香里，心落茶间。</p>
+          <p>Zhioise is a quiet sanctuary for gentle living — a small space where stillness blooms in tea and incense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tea & Incense 两块（B 卡片化，D 分段结构） -->
+  <section class="section">
+    <div class="container split">
+      <article class="panel reveal">
+        <div class="panel-media" style="background-image:linear-gradient( to top left, color-mix(in oklab, var(--wood) 18%, white 82%), transparent ), url('tea.jpg');"></div>
+        <div class="panel-body">
+          <div class="eyebrow">TEA</div>
+          <h2>一盏茶，四时心</h2>
+          <p>Slow tea. Soft mornings. 让茶成为你日常的轻仪式。</p>
+        </div>
+      </article>
+      <article class="panel reveal">
+        <div class="panel-media" style="background-image:linear-gradient( to top left, color-mix(in oklab, var(--wood) 18%, white 82%), transparent ), url('incense.jpg');"></div>
+        <div class="panel-body">
+          <div class="eyebrow">INCENSE</div>
+          <h2>香入气，心自定</h2>
+          <p>Incense as a soft language of calm. 香珠、香牌与线香的温柔气息。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Experience / 体验预约（品牌式 CTA） -->
+  <section id="experience" class="cta">
+    <div class="cta-inner reveal">
+      <h2 class="" style="font-family:'Playfair Display',serif; font-weight:500; font-size: clamp(26px,3.6vw,36px); margin:0 0 10px">体验 · Workshops</h2>
+      <p>Tea gatherings · Incense rituals · Handcrafted beads · Private quiet sessions</p>
+      <p>Calgary · Small groups · By appointment</p>
+      <div class="btns" style="margin-top:14px">
+        <!-- 等你给 IG 后把 href 换成 IG 链接；小红书短链已知，亦可替换为主页链接 -->
+        <a class="btn primary" href="https://xhslink.com/m/6EILQihgaRp" target="_blank" rel="noopener">Join Waitlist（小红书）</a>
+        <a class="btn" href="mailto:zhihe@zhioise.com">Request a Private Session（Email）</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / 联系方式（品牌式名片卡） -->
+  <section id="contact" class="section">
+    <div class="container reveal">
+      <h2 style="font-family:'Playfair Display',serif; font-weight:500; font-size: clamp(24px,3.6vw,32px); margin:0 0 18px">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="k">Email</div>
+          <div class="v"><a href="mailto:zhihe@zhioise.com">zhihe@zhioise.com</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="k">Instagram</div>
+          <div class="v"><a id="ig-link" href="#" target="_blank" rel="noopener">（稍后添加）</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="k">小红书</div>
+          <div class="v"><a href="https://xhslink.com/m/6EILQihgaRp" target="_blank" rel="noopener">@Zhioise（跳转短链）</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="k">Location</div>
+          <div class="v">Calgary, Canada</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="sep"></div>
+    <div style="margin-bottom:6px">© <span id="y"></span> Zhioise · 青止</div>
+    <div style="font-size:13px">Tea · Incense · Quiet Living</div>
+  </footer>
+
+  <script>
+    // 年份
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // 进入视口时显现
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on') })
+    }, {threshold: 0.12});
+    els.forEach(el=>io.observe(el));
+
+    // 平滑滚动（原生行为支持 + 兜底）
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          const target = document.querySelector(id);
+          if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+      })
+    })
+  </script>
+</body>
+</html>
