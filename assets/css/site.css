@@ -188,3 +188,139 @@ html[lang^="zh"] .footer-col,
 html[lang^="zh"] .footer-bottom{
   font-family:var(--font-cn);
 }
+
+
+/* Homepage bilingual title pairing */
+.bilingual-heading::after{
+  content:attr(data-zh);
+  display:block;
+  margin-top:.52rem;
+  font-family:var(--font-cn);
+  font-size:.29em;
+  font-weight:400;
+  line-height:1.55;
+  letter-spacing:.14em;
+  color:var(--muted);
+}
+html[lang^="zh"] .bilingual-heading::after{
+  content:attr(data-en);
+  font-family:var(--font-ui);
+  font-size:.32em;
+  letter-spacing:.035em;
+  text-transform:none;
+}
+.dark .bilingual-heading::after{
+  color:rgba(243,238,228,.62);
+}
+.bilingual-label::after{
+  content:" · " attr(data-zh);
+  font-family:var(--font-cn);
+  text-transform:none;
+  letter-spacing:.1em;
+}
+html[lang^="zh"] .bilingual-label::after{
+  content:" · " attr(data-en);
+  font-family:var(--font-ui);
+  letter-spacing:.06em;
+}
+
+/* More compact homepage experience imagery */
+.experience-grid{
+  max-width:1080px;
+  margin-inline:auto;
+  gap:20px;
+}
+.experience-card{
+  min-height:0;
+  height:clamp(330px,31vw,430px);
+}
+.experience-card .card-copy{
+  left:24px;
+  right:24px;
+  bottom:22px;
+}
+.experience-card .card-copy p{
+  display:none;
+}
+
+@media(max-width:980px){
+  .experience-grid{max-width:900px}
+  .experience-card{height:390px}
+}
+@media(max-width:640px){
+  .experience-card{min-height:0;height:350px}
+  .bilingual-heading::after{font-size:.34em;margin-top:.42rem}
+}
+
+
+/* WeChat link and QR presentation */
+.link-button{
+  appearance:none;
+  border:0;
+  padding:0;
+  margin:0;
+  background:transparent;
+  color:inherit;
+  font:inherit;
+  line-height:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+.inquiry-links .link-button,
+.footer-col .link-button{
+  display:block;
+  width:max-content;
+}
+.inquiry-links .link-button:hover,
+.footer-col .link-button:hover{
+  opacity:.62;
+}
+.wechat-panel{
+  width:min(92vw,430px);
+  text-align:center;
+}
+.wechat-panel .eyebrow{
+  margin-bottom:.8rem;
+}
+.wechat-panel h2{
+  margin-bottom:1.25rem;
+}
+.wechat-qr{
+  display:block;
+  width:min(100%,300px);
+  height:auto;
+  margin:0 auto 1.15rem;
+  padding:10px;
+  background:#fff;
+}
+.wechat-panel p{
+  max-width:32rem;
+  margin-inline:auto;
+  color:var(--muted);
+}
+.wechat-contact-card{
+  margin-top:2.4rem;
+  padding-top:2rem;
+  border-top:1px solid var(--line);
+}
+.wechat-contact-card h3{
+  margin:.55rem 0 1.1rem;
+  font-weight:400;
+}
+.wechat-contact-qr{
+  display:block;
+  width:min(100%,240px);
+  height:auto;
+  padding:8px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.wechat-contact-card p{
+  max-width:28rem;
+  margin-top:1rem;
+  color:var(--muted);
+}
+@media(max-width:640px){
+  .wechat-qr{width:min(100%,260px)}
+  .wechat-contact-qr{width:min(100%,220px)}
+}
