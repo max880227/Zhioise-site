@@ -10,3 +10,158 @@
 .modal{position:fixed;z-index:100;inset:0;background:rgba(25,22,18,.58);display:none;place-items:center;padding:20px}.modal.open{display:grid}.modal-panel{width:min(100%,620px);max-height:90vh;overflow:auto;background:var(--paper);padding:38px;position:relative}.modal-close{position:absolute;right:18px;top:14px;border:0;background:none;font-size:1.7rem;cursor:pointer}.modal-panel h2{font-size:2.6rem;margin-bottom:22px}.toast{position:fixed;z-index:120;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:white;padding:11px 16px;opacity:0;pointer-events:none;transition:.3s;font-size:.82rem}.toast.show{opacity:1;transform:translate(-50%,0)}.fade-up{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}.fade-up.visible{opacity:1;transform:none}
 @media(max-width:980px){.nav-links{position:fixed;inset:0;background:var(--paper);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:25px;transform:translateY(-105%);transition:.45s;z-index:-1}.nav-links.open{transform:none}.nav-links a{font-size:1rem}.menu-toggle{display:block}.nav-actions{gap:10px}.collection-grid{grid-template-columns:1fr 1fr}.collection-card:first-child{grid-column:span 2}.featured-products{grid-template-columns:1fr 1fr}.featured-products .product-card:last-child{grid-column:span 2;max-width:calc(50% - 13px)}.section-head,.philosophy-split,.inquiry-band,.category-block,.product-layout,.about-grid,.founder-layout,.contact-grid{grid-template-columns:1fr}.product-details{position:static}.experience-grid{grid-template-columns:1fr 1fr}.gallery-preview{grid-auto-rows:62px}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:span 2}}
 @media(max-width:640px){.shell{width:min(calc(100% - 28px),var(--max))}.nav-inner{height:72px}.brand img{width:38px;height:38px}.brand-word{font-size:.9rem}.hero:after{background:linear-gradient(0deg,rgba(245,240,230,.96) 0%,rgba(245,240,230,.76) 36%,rgba(245,240,230,.08) 72%)}.hero-content{align-self:flex-end;padding:0 0 70px}.hero h1{font-size:3.45rem}.hero-sub{font-size:1.05rem}.section{padding:78px 0}.section-head{gap:22px;margin-bottom:34px}.collection-grid,.featured-products,.experience-grid,.experience-list{grid-template-columns:1fr}.collection-card:first-child,.featured-products .product-card:last-child{grid-column:auto;max-width:none}.collection-card,.collection-card:nth-child(n+2){min-height:520px}.experience-card{min-height:520px}.gallery-preview{display:grid;grid-template-columns:1fr;grid-auto-rows:auto}.gallery-preview figure,.gp1,.gp2,.gp3,.gp4,.gp5,.gp6{grid-column:auto;grid-row:auto;aspect-ratio:4/5}.page-hero{padding:145px 0 65px}.page-banner{height:62vh}.placeholder-card{padding:30px}.product-hero{padding-top:120px}.product-gallery{gap:10px}.gallery-grid{columns:2 150px;column-gap:10px}.gallery-item{margin-bottom:10px}.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer-bottom{flex-direction:column}.modal-panel{padding:32px 22px}.contact-grid{gap:40px}}
+
+
+/* =========================================================
+   TYPOGRAPHY SYSTEM — restrained editorial scale
+   Inspired by Aesop's compact, modern hierarchy while
+   preserving Zhioise's Chinese visual identity.
+   ========================================================= */
+:root{
+  --font-ui:"Avenir Next",Avenir,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --font-cn:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+}
+html{font-size:16px}
+body{
+  font-family:var(--font-ui);
+  font-size:.9375rem;
+  font-weight:400;
+  line-height:1.65;
+  letter-spacing:.003em;
+  text-rendering:optimizeLegibility;
+}
+html[lang^="zh"] body{
+  font-family:var(--font-cn);
+  line-height:1.78;
+  letter-spacing:.015em;
+}
+h1,h2,h3,h4{
+  font-family:var(--font-ui);
+  font-weight:400;
+  text-wrap:balance;
+}
+html[lang^="zh"] h1,
+html[lang^="zh"] h2,
+html[lang^="zh"] h3,
+html[lang^="zh"] h4{
+  font-family:var(--font-cn);
+  letter-spacing:.025em;
+}
+.brand-word{font-size:.9375rem;letter-spacing:.075em}
+.nav-links a{font-size:.6875rem;letter-spacing:.13em}
+.lang-toggle{font-size:.6875rem;letter-spacing:.06em}
+.eyebrow{font-size:.65625rem;letter-spacing:.16em;line-height:1.45}
+.hero h1{
+  font-size:clamp(3.75rem,6vw,6.25rem);
+  line-height:.98;
+  letter-spacing:-.035em;
+  margin:20px 0 25px;
+}
+.hero-sub{font-size:clamp(1.05rem,1.55vw,1.35rem);line-height:1.42;letter-spacing:.005em}
+.hero-cn{font-size:.8125rem;letter-spacing:.18em;line-height:1.6;margin-top:10px}
+.text-link,.button{font-size:.6875rem;letter-spacing:.12em;line-height:1.4}
+.section-head h2{font-size:clamp(2.25rem,3.8vw,4.35rem);line-height:1.07;letter-spacing:-.028em}
+.section-head p,.body-copy{font-size:.9375rem;line-height:1.78}
+.section-cn{font-size:.875rem;letter-spacing:.11em;line-height:1.7}
+.card-copy h3{font-size:clamp(1.5rem,2.1vw,2.15rem);line-height:1.18;letter-spacing:-.012em}
+.card-copy p{font-size:.84375rem;line-height:1.65}
+.product-card h3{font-size:1.25rem;line-height:1.3}
+.product-card .cn{font-size:.8125rem;line-height:1.55}
+.product-card p{font-size:.84375rem;line-height:1.7}
+.price{font-size:.84375rem}
+.status{font-size:.625rem;letter-spacing:.1em}
+.experience-card .card-copy h3{font-size:clamp(1.5rem,2vw,1.9rem);line-height:1.22}
+.large-quote{font-size:clamp(2.25rem,3.7vw,4.3rem);line-height:1.14;letter-spacing:-.025em}
+.inquiry-band h2{font-size:clamp(2rem,3.3vw,3.75rem);line-height:1.12;letter-spacing:-.022em}
+.inquiry-links a{font-size:.9rem;line-height:1.6}
+.page-hero h1{font-size:clamp(3rem,5vw,5.75rem);line-height:1.03;letter-spacing:-.034em}
+.page-hero p{font-size:.96875rem;line-height:1.78}
+.category-block h2{font-size:clamp(1.9rem,2.9vw,3.15rem);line-height:1.14;letter-spacing:-.018em}
+.pill{font-size:.71875rem;letter-spacing:.045em}
+.placeholder-card h3{font-size:1.85rem;line-height:1.22}
+.placeholder-card p{font-size:.9rem;line-height:1.72}
+.product-details h1{font-size:clamp(2.7rem,4.3vw,4.8rem);line-height:1.04;letter-spacing:-.03em}
+.product-details .cn-title{font-size:1rem;letter-spacing:.11em;line-height:1.6}
+.product-price{font-size:1rem}
+.product-description{font-size:.9375rem;line-height:1.78}
+.experience-detail h3{font-size:1.55rem;line-height:1.3}
+.experience-detail p{font-size:.9rem;line-height:1.75}
+.about-grid h2{font-size:clamp(2.35rem,3.7vw,4.25rem);line-height:1.08;letter-spacing:-.025em}
+.about-grid .body-copy{font-size:.9375rem;line-height:1.82}
+.founder-link{font-size:.71875rem;line-height:1.7}
+.contact-info h2{font-size:clamp(2.3rem,3.5vw,4.1rem);line-height:1.1;letter-spacing:-.024em}
+.contact-info p{font-size:.9375rem;line-height:1.78}
+.field label{font-size:.65625rem;letter-spacing:.1em}
+.field input,.field textarea,.field select{font-size:.9375rem;line-height:1.6}
+.form-note{font-size:.75rem;line-height:1.65}
+.footer-brand p,.footer-col a{font-size:.8125rem;line-height:1.7}
+.footer-col h4{font-size:.6875rem;letter-spacing:.12em}
+.footer-bottom{font-size:.6875rem;line-height:1.6}
+.modal-panel h2{font-size:2.1rem;line-height:1.12;letter-spacing:-.02em}
+.toast{font-size:.75rem}
+
+@media(max-width:980px){
+  .nav-links a{font-size:.875rem;letter-spacing:.1em}
+}
+@media(max-width:640px){
+  html{font-size:15px}
+  body{font-size:1rem}
+  .brand-word{font-size:.875rem}
+  .hero h1{font-size:clamp(3rem,15vw,3.8rem);line-height:1.01}
+  .hero-sub{font-size:1.02rem}
+  .hero-cn{font-size:.8rem;letter-spacing:.15em}
+  .section-head h2{font-size:clamp(2.15rem,10vw,3.1rem);line-height:1.1}
+  .section-head p,.body-copy{font-size:.95rem;line-height:1.82}
+  .card-copy h3{font-size:1.7rem}
+  .card-copy p{font-size:.85rem}
+  .page-hero h1{font-size:clamp(2.65rem,12vw,3.75rem);line-height:1.06}
+  .page-hero p{font-size:.95rem}
+  .category-block h2{font-size:2rem}
+  .product-details h1{font-size:2.75rem}
+  .large-quote{font-size:2.35rem}
+  .inquiry-band h2{font-size:2.25rem}
+  .about-grid h2,.contact-info h2{font-size:2.35rem}
+}
+
+
+/* Chinese-specific scale: compact enough to preserve intentional line breaks */
+html[lang^="zh"] .section-head h2{
+  font-size:clamp(2.05rem,3.25vw,3.75rem);
+  line-height:1.22;
+  letter-spacing:.035em;
+}
+html[lang^="zh"] .page-hero h1{
+  font-size:clamp(2.65rem,4.3vw,4.8rem);
+  line-height:1.2;
+  letter-spacing:.04em;
+}
+html[lang^="zh"] .card-copy h3{
+  font-size:clamp(1.4rem,1.9vw,1.85rem);
+  line-height:1.35;
+}
+html[lang^="zh"] .large-quote{
+  font-size:clamp(2.05rem,3.25vw,3.7rem);
+  line-height:1.35;
+}
+html[lang^="zh"] .inquiry-band h2{
+  font-size:clamp(1.9rem,3vw,3.25rem);
+  line-height:1.42;
+}
+html[lang^="zh"] .product-details h1{
+  font-size:clamp(2.35rem,3.7vw,4.1rem);
+  line-height:1.2;
+}
+@media(max-width:640px){
+  html[lang^="zh"] .section-head h2{
+    font-size:2rem;
+    line-height:1.32;
+  }
+  html[lang^="zh"] .page-hero h1{
+    font-size:2rem;
+    line-height:1.38;
+  }
+  html[lang^="zh"] .inquiry-band h2{
+    font-size:1.85rem;
+    line-height:1.5;
+  }
+}
