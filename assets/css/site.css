@@ -18,22 +18,22 @@
    preserving Zhioise's Chinese visual identity.
    ========================================================= */
 :root{
-  --font-ui:"Avenir Next",Avenir,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
-  --font-cn:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --font-ui:Georgia,"Times New Roman",Times,serif;
+  --font-cn:"Songti SC","STSong","SimSun","Noto Serif SC","Source Han Serif SC",serif;
 }
 html{font-size:16px}
 body{
   font-family:var(--font-ui);
   font-size:.9375rem;
   font-weight:400;
-  line-height:1.65;
-  letter-spacing:.003em;
+  line-height:1.68;
+  letter-spacing:.002em;
   text-rendering:optimizeLegibility;
 }
 html[lang^="zh"] body{
   font-family:var(--font-cn);
-  line-height:1.78;
-  letter-spacing:.015em;
+  line-height:1.86;
+  letter-spacing:.025em;
 }
 h1,h2,h3,h4{
   font-family:var(--font-ui);
@@ -45,7 +45,8 @@ html[lang^="zh"] h2,
 html[lang^="zh"] h3,
 html[lang^="zh"] h4{
   font-family:var(--font-cn);
-  letter-spacing:.025em;
+  font-weight:400;
+  letter-spacing:.055em;
 }
 .brand-word{font-size:.9375rem;letter-spacing:.075em}
 .nav-links a{font-size:.6875rem;letter-spacing:.13em}
@@ -164,4 +165,26 @@ html[lang^="zh"] .product-details h1{
     font-size:1.85rem;
     line-height:1.5;
   }
+}
+
+
+/* Serif identity: Georgia for English, Songti for Chinese */
+button,input,textarea,select,
+.nav-links,.lang-toggle,.text-link,.button,.eyebrow,
+.brand-word,.footer-col,.footer-bottom{
+  font-family:var(--font-ui);
+}
+html[lang^="zh"] button,
+html[lang^="zh"] input,
+html[lang^="zh"] textarea,
+html[lang^="zh"] select,
+html[lang^="zh"] .nav-links,
+html[lang^="zh"] .lang-toggle,
+html[lang^="zh"] .text-link,
+html[lang^="zh"] .button,
+html[lang^="zh"] .eyebrow,
+html[lang^="zh"] .brand-word,
+html[lang^="zh"] .footer-col,
+html[lang^="zh"] .footer-bottom{
+  font-family:var(--font-cn);
 }
