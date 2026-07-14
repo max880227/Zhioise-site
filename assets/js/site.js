@@ -1,5 +1,5 @@
 
-const SITE_EMAIL = 'hello@zhioise.com';
+const SITE_EMAIL = 'zhihe@zhioise.com';
 const body = document.body;
 const header = document.querySelector('.site-header');
 const menuToggle = document.querySelector('.menu-toggle');
@@ -67,3 +67,22 @@ document.querySelectorAll('.inquiry-form').forEach(form=>form.addEventListener('
 document.querySelectorAll('[data-copy-email]').forEach(btn=>btn.addEventListener('click',async()=>{
   try{await navigator.clipboard.writeText(SITE_EMAIL);showToast(document.documentElement.lang.startsWith('zh')?'邮箱已复制':'Email copied')}catch{showToast(SITE_EMAIL)}
 }));
+
+
+const wechatModal=document.querySelector('#wechat-modal');
+const wechatClose=document.querySelector('.wechat-modal-close');
+document.querySelectorAll('[data-wechat-open]').forEach(btn=>btn.addEventListener('click',()=>{
+  wechatModal?.classList.add('open');
+  wechatModal?.setAttribute('aria-hidden','false');
+}));
+function closeWechatModal(){
+  wechatModal?.classList.remove('open');
+  wechatModal?.setAttribute('aria-hidden','true');
+}
+wechatClose?.addEventListener('click',closeWechatModal);
+wechatModal?.addEventListener('click',e=>{
+  if(e.target===wechatModal) closeWechatModal();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeWechatModal();
+});
