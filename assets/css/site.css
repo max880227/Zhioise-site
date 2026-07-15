@@ -324,3 +324,24 @@ html[lang^="zh"] .bilingual-label::after{
   .wechat-qr{width:min(100%,260px)}
   .wechat-contact-qr{width:min(100%,220px)}
 }
+
+
+/* Homepage bilingual hero title */
+.hero-main-title .hero-title-line{
+  display:block;
+  white-space:nowrap;
+}
+html[lang^="zh"] .hero-main-title{
+  font-family:var(--font-cn);
+  font-size:clamp(3.3rem,5.45vw,5.85rem);
+  line-height:1.16;
+  letter-spacing:.09em;
+  margin:24px 0 28px;
+}
+@media(max-width:640px){
+  html[lang^="zh"] .hero-main-title{
+    font-size:clamp(2.7rem,12.5vw,3.55rem);
+    line-height:1.22;
+    letter-spacing:.065em;
+  }
+}
