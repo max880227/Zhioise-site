@@ -11,6 +11,15 @@ function setLanguage(lang){
   document.querySelectorAll('[data-en][data-zh]').forEach(el=>{
     el.textContent = lang === 'zh' ? el.dataset.zh : el.dataset.en;
   });
+  document.querySelectorAll('[data-en-lines][data-zh-lines]').forEach(el=>{
+    const value = lang === 'zh' ? el.dataset.zhLines : el.dataset.enLines;
+    el.replaceChildren(...value.split('|').map(line=>{
+      const span=document.createElement('span');
+      span.className='hero-title-line';
+      span.textContent=line;
+      return span;
+    }));
+  });
   document.querySelectorAll('[data-placeholder-en][data-placeholder-zh]').forEach(el=>{
     el.placeholder = lang === 'zh' ? el.dataset.placeholderZh : el.dataset.placeholderEn;
   });
