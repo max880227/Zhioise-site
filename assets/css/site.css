@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&display=swap");
+
 
 :root{--paper:#f5f0e6;--paper-2:#ece4d7;--ink:#28251f;--muted:#746e62;--pine:#596b60;--cinnabar:#9b5448;--gold:#9f7d45;--line:rgba(40,37,31,.16);--white:#fffdf8;--max:1260px;--shadow:0 24px 80px rgba(37,30,22,.12)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman","Noto Serif SC","Songti SC",serif;line-height:1.72;-webkit-font-smoothing:antialiased}body.menu-open{overflow:hidden}img{display:block;width:100%}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.shell{width:min(calc(100% - 48px),var(--max));margin-inline:auto}.skip-link{position:fixed;left:12px;top:-80px;z-index:100;background:var(--ink);color:white;padding:10px 14px}.skip-link:focus{top:12px}
@@ -326,22 +328,102 @@ html[lang^="zh"] .bilingual-label::after{
 }
 
 
-/* Homepage bilingual hero title */
-.hero-main-title .hero-title-line{
-  display:block;
-  white-space:nowrap;
+/* =========================================================
+   CHINESE-LANGUAGE TYPOGRAPHY
+   English mode remains unchanged.
+   In Chinese mode:
+   - Chinese glyphs use Noto Serif SC with a fuller weight.
+   - Latin letters continue to use Georgia.
+   ========================================================= */
+:root{
+  --font-zh-active:Georgia,"Times New Roman",
+    "Noto Serif SC","Source Han Serif SC",
+    "Songti SC","STSong","SimSun",serif;
 }
-html[lang^="zh"] .hero-main-title{
-  font-family:var(--font-cn);
-  font-size:clamp(3.3rem,5.45vw,5.85rem);
-  line-height:1.16;
-  letter-spacing:.09em;
-  margin:24px 0 28px;
+
+/* Preserve the existing English-mode appearance, including Chinese accents. */
+html:not([lang^="zh"]) body{
+  font-family:Georgia,"Times New Roman",
+    "Songti SC","STSong","SimSun",serif;
 }
-@media(max-width:640px){
-  html[lang^="zh"] .hero-main-title{
-    font-size:clamp(2.7rem,12.5vw,3.55rem);
-    line-height:1.22;
-    letter-spacing:.065em;
-  }
+
+/* Chinese mode: Georgia handles Latin; Noto Serif SC handles Chinese. */
+html[lang^="zh"] body{
+  font-family:var(--font-zh-active);
+  font-weight:500;
+  line-height:1.88;
+  letter-spacing:.024em;
+  -webkit-font-smoothing:auto;
+  font-synthesis:none;
+}
+
+html[lang^="zh"] h1,
+html[lang^="zh"] h2,
+html[lang^="zh"] h3,
+html[lang^="zh"] h4,
+html[lang^="zh"] .hero h1,
+html[lang^="zh"] .section-head h2,
+html[lang^="zh"] .page-hero h1,
+html[lang^="zh"] .large-quote,
+html[lang^="zh"] .product-details h1,
+html[lang^="zh"] .contact-info h2,
+html[lang^="zh"] .about-grid h2,
+html[lang^="zh"] .detail-heading{
+  font-family:var(--font-zh-active);
+  font-weight:600;
+}
+
+html[lang^="zh"] p,
+html[lang^="zh"] li,
+html[lang^="zh"] label,
+html[lang^="zh"] input,
+html[lang^="zh"] textarea,
+html[lang^="zh"] select,
+html[lang^="zh"] .body-copy,
+html[lang^="zh"] .product-description,
+html[lang^="zh"] .form-note,
+html[lang^="zh"] .footer-brand p{
+  font-family:var(--font-zh-active);
+  font-weight:500;
+}
+
+html[lang^="zh"] .nav-links,
+html[lang^="zh"] .nav-links a,
+html[lang^="zh"] .text-link,
+html[lang^="zh"] .button,
+html[lang^="zh"] .eyebrow,
+html[lang^="zh"] .footer-col,
+html[lang^="zh"] .footer-col h4,
+html[lang^="zh"] .footer-col a,
+html[lang^="zh"] .footer-bottom,
+html[lang^="zh"] .status,
+html[lang^="zh"] .price,
+html[lang^="zh"] .card-copy,
+html[lang^="zh"] .product-card,
+html[lang^="zh"] .experience-title,
+html[lang^="zh"] .experience-subtitle,
+html[lang^="zh"] .detail-heading small{
+  font-family:var(--font-zh-active);
+  font-weight:500;
+}
+
+/* These elements display English while the Chinese version is active. */
+html[lang^="zh"] .brand-word,
+html[lang^="zh"] .lang-toggle,
+html[lang^="zh"] .hero-sub,
+html[lang^="zh"] .bilingual-heading::after,
+html[lang^="zh"] .bilingual-label::after,
+html[lang^="zh"] .detail-heading small,
+html[lang^="zh"] .experience-subtitle{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:400;
+}
+
+/* Keep Chinese title strokes full without making the page feel heavy. */
+html[lang^="zh"] .hero-cn,
+html[lang^="zh"] .cn,
+html[lang^="zh"] .cn-title{
+  font-family:"Noto Serif SC","Source Han Serif SC",
+    "Songti SC","STSong","SimSun",serif;
+  font-weight:500;
 }
