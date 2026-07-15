@@ -95,3 +95,30 @@ wechatModal?.addEventListener('click',e=>{
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape') closeWechatModal();
 });
+
+// Fragrant adornment catalog filters
+const catalogFilters=[...document.querySelectorAll('.catalog-filter')];
+const adornmentCards=[...document.querySelectorAll('.adornment-card')];
+catalogFilters.forEach(button=>button.addEventListener('click',()=>{
+  const filter=button.dataset.filter||'all';
+  catalogFilters.forEach(item=>item.classList.toggle('active',item===button));
+  adornmentCards.forEach(card=>{card.hidden=filter!=='all'&&card.dataset.category!==filter;});
+}));
+
+// Product gallery image switching
+const productMainImage=document.querySelector('#product-main-image');
+const productThumbs=[...document.querySelectorAll('[data-product-image]')];
+productThumbs.forEach(button=>button.addEventListener('click',()=>{
+  if(!productMainImage)return;
+  productMainImage.src=button.dataset.productImage;
+  productThumbs.forEach(item=>item.classList.toggle('active',item===button));
+}));
+
+// Add the selected cat design to the inquiry topic
+const variantSelect=document.querySelector('#variant-select');
+const productInquiryButton=document.querySelector('.product-inquiry-button');
+variantSelect?.addEventListener('change',()=>{
+  if(!productInquiryButton)return;
+  const base=productInquiryButton.dataset.inquire.split(' — ')[0];
+  productInquiryButton.dataset.inquire=`${base} — ${variantSelect.value}`;
+});
