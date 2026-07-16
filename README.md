@@ -1,13 +1,13 @@
-# Zhioise · 青止 Website
+# Zhioise Website — 35 Incense Products
 
-This package is ready for GitHub Pages deployment.
-
-## Fragrant Adornments update
-- 19 product links are included on `adornments.html`.
-- 11 earring products and 8 bracelet products are listed.
-- The cat bracelet is one product with four design options.
-- Each product has its own bilingual detail page, price, stock, materials, gallery and inquiry button.
-- Product inquiries are sent to `zhihe@zhioise.com` through the visitor's email application.
+This package includes the complete bilingual Zhioise website with 35 incense products, the existing fragrant adornment catalog, tea-by-inquiry page, experiences, gallery, about, contact, and social inquiry links.
 
 ## Upload
-Upload all files and folders in this package to the root of the GitHub Pages repository, preserving the `assets` folder structure.
+Upload all files and folders in this directory to the root of the GitHub Pages repository, replacing files with the same names. Keep the `assets` folder structure unchanged.
+
+## Incense catalog
+- 35 individual product or set pages
+- In Stock / 现货 status without numeric inventory
+- Inquiry-based ordering
+- Twelve-month full-size collection inquiry: CAD $540
+- Product descriptions use restrained cultural and sensory language rather than medical claims
